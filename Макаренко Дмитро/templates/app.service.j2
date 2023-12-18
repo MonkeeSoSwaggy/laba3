@@ -1,0 +1,13 @@
+[Unit]
+Description=Created by Makarenko Dmytro
+Requires=network.target
+After=network.target
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+ExecStart=java -jar "{{ app_dir }}/{{ app_file }}"
+Restart=on-failure
+RestartSec=10
+Environment=PORT="{{ app_port }}"
